@@ -2,6 +2,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	text-decoration: none;
 }
 
 body {
@@ -21,6 +22,7 @@ body {
 	width: 90%;
 	min-width: 400px;
 }
+
 .box {
 	display: flex;
 	justify-content: center;
@@ -88,13 +90,14 @@ input,
 }
 
 .time.active,
-.time input:checked + span {
+.time input:checked+span {
 	background: #4a90e2;
 	border-color: #4a90e2;
 	color: white;
 }
 
-button {
+button,
+summary {
 	display: block;
 	margin-left: auto;
 	padding: 1rem;
@@ -105,6 +108,7 @@ button {
 	border-radius: 4px;
 	font-weight: bold;
 	cursor: pointer;
+	margin-inline: 1rem;
 }
 
 button:hover {

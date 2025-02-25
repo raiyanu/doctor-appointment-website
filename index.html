@@ -11,35 +11,34 @@
 <body>
     <h1>APPOINTMENT BOOKING</h1>
     <div class="box">
-        <form class="form">
-            <h2>Sign in</h2>
-            <div class="input-wrap">
-                <label for="name">Email</label>
-                <input type="email" name="email" required>
-            </div>
-            <div class="input-wrap">
-                <label for="name">Password</label>
-                <input type="password" name="password" required>
-            </div>
-            <button type="submit" style="width: 100%;">SIGN IN</button>
-        </form>
-        <form class="form">
-            <h2>Sign up</h2>
-            <div class="input-wrap">
-                <label for="name">Email</label>
-                <input type="email" name="email" required>
-            </div>
-            <div class="input-wrap">
-                <label for="name">Password</label>
-                <input type="password" name="password" required>
-            </div>
-            <div class="input-wrap">
-                <label for="name">Confirm password</label>
-                <input type="password" name="password" required>
-            </div>
-            <button type="submit" style="width: 100%;">SIGN UP</button>
-        </form>
+        <a href="/patient.html">
+            <button>
+                BOOK APPOINTMENT
+            </button>
+        </a>
+
+        <details>
+            <summary>
+                ADMIN LOGIN
+            </summary>
+            <form class="form">
+                <h2>Sign in</h2>
+                <div class="input-wrap">
+                    <label for="name">Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="input-wrap">
+                    <label for="name">Password</label>
+                    <input type="password" name="password" required>
+                </div>
+                <button type="submit">SIGN IN</button>
+            </form>
+        </details>
     </div>
+    <script src="formHandler.js"></script>
+    <script>
+        handleFormNavigation("nextPage.html");
+    </script>
 </body>
 
 </html>
