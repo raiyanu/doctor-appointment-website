@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="patients"></div>
+    <script>
+        const isAdmin = localStorage.getItem("isAdmin") ? JSON.parse(localStorage.getItem("isAdmin")) : false;
+        if (!isAdmin) {
+            document.body.innerHTML = "<h1>Unauthorized Access</h1> <br> <p>Redirecting to home page...</p>";
+            setTimeout(() => location.href = "/index.html", 2000);
+        } else {
+            if (!localStorage.getItem("patients")) localStorage.setItem("patients", "[]");
+            let data = JSON.parse(localStorage.getItem("patients") || "[]"), p = document.getElementById("patients");
+            function render() {
+                p.innerHTML = data.map((d, i) =>
+                    `<div>
+                    <h3>${d.details.name} (${d.details.age}, ${d.details.gender})</h3>
+                    ${Object.entries(d.details).map(([k, v]) => `<p><b>${k.replace(/-/g, " ")}:</b> ${v}</p>`).join("")}
+                    <button onclick="del(${i})">Delete</button>
+                </div><hr><br><br><br>`
+                ).join("");
+            }
+            function del(i) {
+                data.splice(i, 1);
+                localStorage.setItem("patients", JSON.stringify(data));
+                render();
+            }
+            render();
+            const logoutButton = document.createElement("button");
+            logoutButton.textContent = "Log Out";
+            logoutButton.onclick = () => {
+                localStorage.removeItem("isAdmin");
+                location.href = "/index.html";
+            };
+            document.body.appendChild(logoutButton);
+        }
+    </script>
+</body>
+
+</html>

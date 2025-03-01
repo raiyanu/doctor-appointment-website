@@ -18,7 +18,7 @@
                 "> BOOK APPOINTMENT </button>
         <details>
             <summary> ADMIN LOGIN </summary>
-            <form class="form">
+            <form class="form" onsubmit="handleLogin(event, this)">
                 <h2>Sign in</h2>
                 <div class="input-wrap">
                     <label for="name">Email</label>
@@ -32,9 +32,19 @@
             </form>
         </details>
     </div>
-    <script src="formHandler.js"></script>
+    <!-- <script src="formHandler.js"></script> -->
     <script>
-        handleFormNavigation("nextPage.html");
+        const handleLogin = (event, form) => {
+            event.preventDefault();
+            const formData = Object.fromEntries(new FormData(form));
+            console.log(formData);
+            if (formData.email === "uma@gmail.com" && formData.password === "123") {
+                localStorage.setItem("isAdmin", true);
+                window.location.href = "/admin.html";
+            } else {
+                alert("Invalid credentials");
+            }
+        };
     </script>
 </body>
 

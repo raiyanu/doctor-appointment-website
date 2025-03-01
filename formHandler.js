@@ -6,32 +6,39 @@ function handleFormNavigation(nextPage = null) {
         const currentPatientId = localStorage.getItem('currentPatientId') || "patientID-" + Math.floor(Math.random() * 1000000);
         localStorage.setItem('currentPatientId', currentPatientId);
 
-        // Load stored data
+        // Load latest patient data
         const patients = JSON.parse(localStorage.getItem('patients') || '[]');
-        const currentPatient = patients.find(patient => patient.id === currentPatientId) || {};
-        Object.entries(currentPatient.details || {}).forEach(([key, value]) => {
-            const field = form.elements[key];
-            if (field) field.value = value;
+        let currentPatient = patients.find(patient => patient.id === currentPatientId);
+
+        if (!currentPatient) {
+            currentPatient = { id: currentPatientId, details: {} };
+            patients.push(currentPatient);
+        }
+
+        // Populate form fields with existing data
+        Object.entries(currentPatient.details).forEach(([key, value]) => {
+            if (form.elements[key]) form.elements[key].value = value;
         });
 
-        // Save on input change
-        form.addEventListener("input", () => {
+        function savePatientData() {
             const formData = Object.fromEntries(new FormData(form));
-            const updatedPatients = patients.filter(patient => patient.id !== currentPatientId);
-            updatedPatients.push({ id: currentPatientId, details: formData });
-            localStorage.setItem('patients', JSON.stringify(updatedPatients));
-        });
 
-        // Handle form submission
+            // Merge new data with existing details
+            currentPatient.details = { ...currentPatient.details, ...formData };
+
+            // Update patients array
+            const updatedPatients = patients.map(patient =>
+                patient.id === currentPatientId ? currentPatient : patient
+            );
+
+            localStorage.setItem('patients', JSON.stringify(updatedPatients));
+        }
+
+        form.addEventListener("input", savePatientData);
         form.addEventListener("submit", (e) => {
-            e.preventDefault(); // Prevent actual form submission
-
-            const formData = Object.fromEntries(new FormData(form));
-            const updatedPatients = patients.filter(patient => patient.id !== currentPatientId);
-            updatedPatients.push({ id: currentPatientId, details: formData });
-            localStorage.setItem('patients', JSON.stringify(updatedPatients));
-
-            if (nextPage) window.location.href = nextPage; // Navigate if nextPage is provided
+            e.preventDefault();
+            savePatientData();
+            if (nextPage) window.location.href = nextPage;
         });
     });
 }
