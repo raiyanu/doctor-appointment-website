@@ -3,10 +3,13 @@ function handleFormNavigation(nextPage = null) {
         const form = document.querySelector("form");
         if (!form) return;
 
-        const pageKey = location.pathname.split("/").pop();
+        const currentPatientId = localStorage.getItem('currentPatientId') || "patientID-" + Math.floor(Math.random() * 1000000);
+        localStorage.setItem('currentPatientId', currentPatientId);
 
         // Load stored data
-        Object.entries(JSON.parse(localStorage.getItem(pageKey) || "{}")).forEach(([key, value]) => {
+        const patients = JSON.parse(localStorage.getItem('patients') || '[]');
+        const currentPatient = patients.find(patient => patient.id === currentPatientId) || {};
+        Object.entries(currentPatient.details || {}).forEach(([key, value]) => {
             const field = form.elements[key];
             if (field) field.value = value;
         });
@@ -14,7 +17,9 @@ function handleFormNavigation(nextPage = null) {
         // Save on input change
         form.addEventListener("input", () => {
             const formData = Object.fromEntries(new FormData(form));
-            localStorage.setItem(pageKey, JSON.stringify(formData));
+            const updatedPatients = patients.filter(patient => patient.id !== currentPatientId);
+            updatedPatients.push({ id: currentPatientId, details: formData });
+            localStorage.setItem('patients', JSON.stringify(updatedPatients));
         });
 
         // Handle form submission
@@ -22,7 +27,9 @@ function handleFormNavigation(nextPage = null) {
             e.preventDefault(); // Prevent actual form submission
 
             const formData = Object.fromEntries(new FormData(form));
-            localStorage.setItem(pageKey, JSON.stringify(formData));
+            const updatedPatients = patients.filter(patient => patient.id !== currentPatientId);
+            updatedPatients.push({ id: currentPatientId, details: formData });
+            localStorage.setItem('patients', JSON.stringify(updatedPatients));
 
             if (nextPage) window.location.href = nextPage; // Navigate if nextPage is provided
         });

@@ -11,16 +11,13 @@
 <body>
     <h1>APPOINTMENT BOOKING</h1>
     <div class="box">
-        <a href="/patient.html">
-            <button>
-                BOOK APPOINTMENT
-            </button>
-        </a>
-
+        <button onclick=" 
+                localStorage.setItem('currentPatientId', 'patientID-' +
+                Math.floor(Math.random() * 1000000));
+                window.location.href = '/patient.html';
+                "> BOOK APPOINTMENT </button>
         <details>
-            <summary>
-                ADMIN LOGIN
-            </summary>
+            <summary> ADMIN LOGIN </summary>
             <form class="form">
                 <h2>Sign in</h2>
                 <div class="input-wrap">
