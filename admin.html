@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patients</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        #patients {
+            padding-top: 100px;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,10 +26,11 @@
             function render() {
                 p.innerHTML = data.map((d, i) =>
                     `<div>
-                    <h3>${d.details.name} (${d.details.age}, ${d.details.gender})</h3>
+                    <h4> patientId : ${d.id}</h4>
+                    <h4>${d.details.name} (${d.details.age}, ${d.details.gender})</h4>
                     ${Object.entries(d.details).map(([k, v]) => `<p><b>${k.replace(/-/g, " ")}:</b> ${v}</p>`).join("")}
                     <button onclick="del(${i})">Delete</button>
-                </div><hr><br><br><br>`
+                </div><br><br><br><hr><br><br><br>`
                 ).join("");
             }
             function del(i) {
