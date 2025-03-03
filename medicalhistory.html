@@ -1,41 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Appointment Booking</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Appointment Booking</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <h1>APPOINTMENT BOOKING</h1>
-    <div class="box">
-        <form class="form">
-            <h2>Patient Medical History</h2>
-            <div class="input-wrap">
-                <label for="previous">Current Illnesses</label> <br>
-                <textarea name="current-illnesses" rows="4" style="width: 100%;" required></textarea>
-            </div>
-            <div class="input-wrap">
-                <label for="previous-illnesses">Previous Illnesses</label> <br>
-                <textarea name="previous-illnesses" rows="4" style="width: 100%;"></textarea>
-            </div>
-            <div class="input-wrap">
-                <label for="current-medications">Current Medications</label><br>
-                <textarea name="current-medications" rows="4" style="width: 100%;"></textarea>
-            </div>
-            <div class="input-wrap">
-                <label for="allergies">Allergies</label><br>
-                <textarea name="allergies" rows="4" style="width: 100%;" required></textarea>
-            </div>
-            <button type="submit" style="width: 100%;">SUBMIT</button>
-        </form>
-    </div>
-    <script src="formHandler.js"></script>
-    <script>
-        handleFormNavigation("insurance.html");
-    </script>
-</body>
-
+    <body>
+        <h1>APPOINTMENT BOOKING</h1>
+        <div class="box">
+            <form class="form">
+                <h2>Patient Medical History</h2>
+                <div class="input-wrap">
+                    <label for="previous">Current Illnesses</label> <br />
+                    <textarea
+                        name="current-illnesses"
+                        rows="4"
+                        style="width: 100%"
+                        required
+                    ></textarea>
+                </div>
+                <div class="input-wrap">
+                    <label for="previous-illnesses">Previous Illnesses</label>
+                    <br />
+                    <textarea
+                        name="previous-illnesses"
+                        rows="4"
+                        style="width: 100%"
+                    ></textarea>
+                </div>
+                <div class="input-wrap">
+                    <label for="current-medications">Current Medications</label
+                    ><br />
+                    <textarea
+                        name="current-medications"
+                        rows="4"
+                        style="width: 100%"
+                    ></textarea>
+                </div>
+                <div class="input-wrap">
+                    <label for="allergies">Allergies</label><br />
+                    <textarea
+                        name="allergies"
+                        rows="4"
+                        style="width: 100%"
+                        required
+                    ></textarea>
+                </div>
+                <button type="submit" style="width: 100%">SUBMIT</button>
+            </form>
+        </div>
+        <script src="formHandler.js"></script>
+        <script>
+            handleFormNavigation("./insurance.html");
+        </script>
+    </body>
 </html>

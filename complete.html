@@ -1,26 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Appointment Booking</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Appointment Booking</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <div class="box">
-        <div>
-            <h1>Appointment Booked!</h1> <br>
-            <h2 id="patientID"></h2>
-            <br><br><br>
-            <a href="/">click to go back</a>
+    <body>
+        <div class="box">
+            <div>
+                <h1>Appointment Booked!</h1>
+                <br />
+                <h2 id="patientID"></h2>
+                <br /><br /><br />
+                <a href="./index.html">click to go back</a>
+            </div>
         </div>
-    </div>
-    <script>
-        const patientId = localStorage.getItem('currentPatientId');
-        document.getElementById('patientID').innerText = `Patient ID: ${patientId}`;
-    </script>
-</body>
-
+        <script>
+            const patientId = localStorage.getItem("currentPatientId");
+            document.getElementById("patientID").innerText =
+                `Patient ID: ${patientId}`;
+        </script>
+    </body>
 </html>

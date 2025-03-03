@@ -1,113 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Appointment Booking</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Appointment Booking</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <h1>APPOINTMENT BOOKING</h1>
-    <div class="box">
-        <form class="form" style="min-width: 100%;">
-            <h2>Patient Details</h2>
-            <div class="input-wrap">
-                <label for="name">Name</label>
-                <input type="text" name="name" required>
-            </div>
-            <div class="input-wrap">
-                <label for="age">Age</label>
-                <input type="number" name="age" required>
-            </div>
-            <div class="input-wrap">
-                <label for="gender">Gender</label>
-                <select name="gender" class="dropdown" required>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-            <div class="input-wrap">
-                <label for="contact">Contact Number</label>
-                <input type="tel" name="contact" required>
-            </div>
-            <h2>Book Time</h2>
-            <div class="row">
-                <div class="col">
-                    <label>DOCTOR</label>
-                    <select name="doctor" class="input-wrap dropdown" required>
-                        <option value="Dr. Smith">Dr. Smith</option>
-                        <option value="Dr. Johnson">Dr. Johnson</option>
-                        <option value="Dr. Williams">Dr. Williams</option>
+    <body>
+        <h1>APPOINTMENT BOOKING</h1>
+        <div class="box">
+            <form class="form" style="min-width: 100%">
+                <h2>Patient Details</h2>
+                <div class="input-wrap">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" required />
+                </div>
+                <div class="input-wrap">
+                    <label for="age">Age</label>
+                    <input type="number" name="age" required />
+                </div>
+                <div class="input-wrap">
+                    <label for="gender">Gender</label>
+                    <select name="gender" class="dropdown" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
-                <div class="col">
-                    <label>APPOINTMENT DATE</label>
-                    <div>
-                        <input type="date" name="appointmentDate" class="input-wrap" required>
+                <div class="input-wrap">
+                    <label for="contact">Contact Number</label>
+                    <input type="tel" name="contact" required />
+                </div>
+                <h2>Book Time</h2>
+                <div class="row">
+                    <div class="col">
+                        <label>DOCTOR</label>
+                        <select
+                            name="doctor"
+                            class="input-wrap dropdown"
+                            required
+                        >
+                            <option value="Dr. Smith">Dr. Smith</option>
+                            <option value="Dr. Johnson">Dr. Johnson</option>
+                            <option value="Dr. Williams">Dr. Williams</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label>APPOINTMENT DATE</label>
+                        <div>
+                            <input
+                                type="date"
+                                name="appointmentDate"
+                                class="input-wrap"
+                                required
+                            />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <label>AVAILABLE HOURS</label>
-            <div class="time-grid">
-                <label class="time">
-                    <input type="radio" name="time" value="9:00 AM">
-                    <span>9:00 AM</span>
-                </label>
-                <label class="time">
-                    <input type="radio" name="time" value="10:00 AM">
-                    <span>10:00 AM</span>
-                </label>
-                <label class="time">
-                    <input type="radio" name="time" value="11:00 AM">
-                    <span>11:00 AM</span>
-                </label>
-                <label class="time">
-                    <input type="radio" name="time" value="12:00 AM">
-                    <span>12:00 PM</span>
-                </label>
-                <label class="time">
-                    <input type="radio" name="time" value="1:00 PM">
-                    <span>1:00 PM</span>
-                </label>
-                <label class="time">
-                    <input type="radio" name="time" value="2:00 PM">
-                    <span>2:00 PM</span>
-                </label>
-                <label class="time">
-                    <input type="radio" name="time" value="3:00 PM">
-                    <span>3:00 PM</span>
-                </label>
-                <label class="time">
-                    <input type="radio" name="time" value="4:00 PM">
-                    <span>4:00 PM</span>
-                </label>
-                <label class="time">
-                    <input type="radio" name="time" value="5:00 PM">
-                    <span>5:00 PM</span>
-                </label>
-                <label class="time">
-                    <input type="radio" name="time" value="6:00 PM">
-                    <span>6:00 PM</span>
-                </label>
-                <label class="time">
-                    <input type="radio" name="time" value="7:00 PM">
-                    <span>7:00 PM</span>
-                </label>
-                <label class="time">
-                    <input type="radio" name="time" value="8:00 PM">
-                    <span>8:00 PM</span>
-                </label>
-            </div>
-            <button type="submit" style="width: 100%;">SUBMIT</button>
-        </form>
-    </div>
-    <script src="formHandler.js"></script>
-    <script>
-        handleFormNavigation("medicalhistory.html"); // Replace with the actual next page URL
-    </script>
-</body>
-
+                <label>AVAILABLE HOURS</label>
+                <div class="time-grid">
+                    <label class="time">
+                        <input type="radio" name="time" value="9:00 AM" />
+                        <span>9:00 AM</span>
+                    </label>
+                    <label class="time">
+                        <input type="radio" name="time" value="10:00 AM" />
+                        <span>10:00 AM</span>
+                    </label>
+                    <label class="time">
+                        <input type="radio" name="time" value="11:00 AM" />
+                        <span>11:00 AM</span>
+                    </label>
+                    <label class="time">
+                        <input type="radio" name="time" value="12:00 AM" />
+                        <span>12:00 PM</span>
+                    </label>
+                    <label class="time">
+                        <input type="radio" name="time" value="1:00 PM" />
+                        <span>1:00 PM</span>
+                    </label>
+                    <label class="time">
+                        <input type="radio" name="time" value="2:00 PM" />
+                        <span>2:00 PM</span>
+                    </label>
+                    <label class="time">
+                        <input type="radio" name="time" value="3:00 PM" />
+                        <span>3:00 PM</span>
+                    </label>
+                    <label class="time">
+                        <input type="radio" name="time" value="4:00 PM" />
+                        <span>4:00 PM</span>
+                    </label>
+                    <label class="time">
+                        <input type="radio" name="time" value="5:00 PM" />
+                        <span>5:00 PM</span>
+                    </label>
+                    <label class="time">
+                        <input type="radio" name="time" value="6:00 PM" />
+                        <span>6:00 PM</span>
+                    </label>
+                    <label class="time">
+                        <input type="radio" name="time" value="7:00 PM" />
+                        <span>7:00 PM</span>
+                    </label>
+                    <label class="time">
+                        <input type="radio" name="time" value="8:00 PM" />
+                        <span>8:00 PM</span>
+                    </label>
+                </div>
+                <button type="submit" style="width: 100%">SUBMIT</button>
+            </form>
+        </div>
+        <script src="formHandler.js"></script>
+        <script>
+            handleFormNavigation("./medicalhistory.html"); // Replace with the actual next page URL
+        </script>
+    </body>
 </html>

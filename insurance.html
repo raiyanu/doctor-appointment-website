@@ -1,39 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Insurance Details</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Insurance Details</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <h1>APPOINTMENT BOOKING</h1>
-    <div class="box">
-        <form class="form">
-            <h2>INSURANCE DETAILS</h2>
-            <br>
-            <div class="input-wrap">
-                <label for="insuranceProvider">Insurance Provider</label>
-                <input type="text" id="insuranceProvider" name="insuranceProvider" required>
-            </div>
-            <div class="input-wrap">
-                <label for="policyNumber">Policy Number</label>
-                <input type="text" id="policyNumber" name="insurance-policyNumber" required>
-            </div>
-            <div class="input-wrap">
-                <label for="coverageDetails">Coverage Details</label> <br>
-                <textarea id="coverageDetails" name="insurance-coverageDetails" rows="4" style="width: 100%;"
-                    required></textarea>
-            </div>
-            <button type="submit" style="width: 100%;">Submit</button>
-        </form>
-    </div>
-    <script src="formHandler.js"></script>
-    <script>
-        handleFormNavigation("emergencycontact.html");
-    </script>
-</body>
-
+    <body>
+        <h1>APPOINTMENT BOOKING</h1>
+        <div class="box">
+            <form class="form">
+                <h2>INSURANCE DETAILS</h2>
+                <br />
+                <div class="input-wrap">
+                    <label for="insuranceProvider">Insurance Provider</label>
+                    <input
+                        type="text"
+                        id="insuranceProvider"
+                        name="insuranceProvider"
+                    />
+                </div>
+                <div class="input-wrap">
+                    <label for="policyNumber">Policy Number</label>
+                    <input
+                        type="text"
+                        id="policyNumber"
+                        name="insurance-policyNumber"
+                    />
+                </div>
+                <div class="input-wrap">
+                    <label for="coverageDetails">Coverage Details</label> <br />
+                    <textarea
+                        id="coverageDetails"
+                        name="insurance-coverageDetails"
+                        rows="4"
+                        style="width: 100%"
+                    ></textarea>
+                </div>
+                <button type="submit" style="width: 100%">Submit</button>
+            </form>
+        </div>
+        <script src="formHandler.js"></script>
+        <script>
+            handleFormNavigation("./emergencycontact.html");
+        </script>
+    </body>
 </html>

@@ -1,51 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Appointment Booking</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Appointment Booking</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <h1>APPOINTMENT BOOKING</h1>
-    <div class="box">
-        <button onclick=" 
+    <body>
+        <h1>APPOINTMENT BOOKING</h1>
+        <div class="box">
+            <button
+                onclick="
                 localStorage.setItem('currentPatientId', 'patientID-' +
                 Math.floor(Math.random() * 1000000));
-                window.location.href = '/patient.html';
-                "> BOOK APPOINTMENT </button>
-        <details>
-            <summary> ADMIN LOGIN </summary>
-            <form class="form" onsubmit="handleLogin(event, this)">
-                <h2>Sign in</h2>
-                <div class="input-wrap">
-                    <label for="name">Email</label>
-                    <input type="email" name="email" required>
-                </div>
-                <div class="input-wrap">
-                    <label for="name">Password</label>
-                    <input type="password" name="password" required>
-                </div>
-                <button type="submit">SIGN IN</button>
-            </form>
-        </details>
-    </div>
-    <!-- <script src="formHandler.js"></script> -->
-    <script>
-        const handleLogin = (event, form) => {
-            event.preventDefault();
-            const formData = Object.fromEntries(new FormData(form));
-            console.log(formData);
-            if (formData.email === "uma@gmail.com" && formData.password === "123") {
-                localStorage.setItem("isAdmin", true);
-                window.location.href = "/admin.html";
-            } else {
-                alert("Invalid credentials");
-            }
-        };
-    </script>
-</body>
-
+                window.location.href = './patient.html';
+                "
+            >
+                BOOK APPOINTMENT
+            </button>
+            <details>
+                <summary>ADMIN LOGIN</summary>
+                <form class="form" onsubmit="handleLogin(event, this)">
+                    <h2>Sign in</h2>
+                    <div class="input-wrap">
+                        <label for="name">Email</label>
+                        <input type="email" name="email" required />
+                    </div>
+                    <div class="input-wrap">
+                        <label for="name">Password</label>
+                        <input type="password" name="password" required />
+                    </div>
+                    <button type="submit">SIGN IN</button>
+                </form>
+            </details>
+        </div>
+        <!-- <script src="formHandler.js"></script> -->
+        <script>
+            const handleLogin = (event, form) => {
+                event.preventDefault();
+                const formData = Object.fromEntries(new FormData(form));
+                console.log(formData);
+                if (
+                    formData.email === "uma@gmail.com" &&
+                    formData.password === "123"
+                ) {
+                    localStorage.setItem("isAdmin", true);
+                    window.location.href = "./admin.html";
+                } else {
+                    alert("Invalid credentials");
+                }
+            };
+        </script>
+    </body>
 </html>
